@@ -29,7 +29,7 @@ const reactionSchema = new Schema(
     toJSON: {
       getters: true,
     },
-    id: false, // Optionally prevent an '_id' for subdocuments
+    id: false, 
   }
 );
 
