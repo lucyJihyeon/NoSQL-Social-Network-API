@@ -1,6 +1,7 @@
 //importing necessary modules from mongoose
 const { Schema, Types, model } = require("mongoose");
 const reactionSchema = require('./Reaction.js');
+const moment = require("moment"); 
 
 //create a new schema instance named thought
 const thoughtSchema = new Schema(
@@ -15,6 +16,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a") ,
     },
     username: {
       type: Schema.Types.ObjectId,
