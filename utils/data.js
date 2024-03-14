@@ -1,13 +1,10 @@
-// Usernames
-const usernames = ["Elena", "Marco", "Julia", "Liam", "Sophia"];
-
-// Emails
-const emails = [
-  "info123@example.com",
-  "contact_us@example.net",
-  "support_team@example.org",
-  "hello_world@example.com",
-  "feedback@example.net",
+//user info
+const randomUsers = [
+  { username: "Elena", email: "elena@example.com" },
+  { username: "Marco", email: "marco@example.net" },
+  { username: "Julia", email: "julia@example.org" },
+  { username: "Liam", email: "liam@example.com" },
+  { username: "Sophia", email: "sophia@example.net" },
 ];
 
 // Thoughts
@@ -41,12 +38,6 @@ const randomReactions = [
 // Get a random item from an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-// Gets a random username
-const getRandomUsername = () => getRandomArrItem(usernames);
-
-// Gets a random email
-const getRandomEmail = () => getRandomArrItem(emails);
-
 // Function to generate random thoughts
 const getRandomThoughts = (int) => {
   const results = [];
@@ -65,10 +56,17 @@ const getRandomReactions = (int) => {
   return results;
 };
 
+const getRandomUser = (int) => {
+  const results = [];
+  for (let i = 0; i < int; i++) {
+    results.push(getRandomArrItem(randomUsers));
+  }
+  return results
+};
+
 // Export the functions for use in seed.js
 module.exports = {
-  getRandomUsername,
-  getRandomEmail,
   getRandomThoughts,
   getRandomReactions,
+  getRandomUser,
 };
