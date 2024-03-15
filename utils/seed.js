@@ -25,7 +25,7 @@ connection.once("open", async () => {
     const userThoughts = getRandomThoughts(2).map((thought) => ({
       thoughtText: thought,
       //after inserting, user has _id field 
-      username: user._id, 
+      username: user.username, 
       reactions: getRandomReactions(2).map(reaction => ({
         reactionBody: reaction,
         username: getRandomUser(1)[0].username, 
