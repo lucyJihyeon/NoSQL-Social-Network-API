@@ -22,13 +22,14 @@ connection.once("open", async () => {
 
   // Map over inserted users to create thoughts
   for (const user of users) {
+    const randomUser = getRandomUser(1)[0];
     const userThoughts = getRandomThoughts(2).map((thought) => ({
       thoughtText: thought,
       //after inserting, user has _id field 
       username: user._id, 
-      reactions: getRandomReactions(3).map(reaction => ({
+      reactions: getRandomReactions(2).map(reaction => ({
         reactionBody: reaction,
-        username: user.username, 
+        username: getRandomUser(1)[0].username, 
       })),
     }));
 
