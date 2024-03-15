@@ -54,5 +54,24 @@ module.exports = {
         console.error(error);
         res.status(500).json({ message: "Error deleting a thought" });
       }
+  },
+  //update a thought and associated user
+  // /api/thoughts/:thoughtId
+  async updateThought(req, res) {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        //replace thought with the value in the request body 
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+      if (!thought) {
+        return res.status(404).json({ message: "No thought with that ID" });
+      }
+      res.status(200).json(thought);
+    }catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error updating a thought" });
+    }
   }
 };
