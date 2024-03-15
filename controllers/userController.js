@@ -72,7 +72,9 @@ module.exports = {
       if (req.body.username && ogUser.username !== req.body.username) {
         await Thought.updateMany(
           { username: ogUser.username },
-          { $set: { username: req.body.username } }
+          { $set: { username: req.body.username } },
+          //return the updated data and run validator 
+          { runValidators: true, new: true }
         );
       }
       res.status(200).json(user);
