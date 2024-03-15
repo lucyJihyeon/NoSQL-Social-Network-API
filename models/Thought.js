@@ -1,5 +1,5 @@
 //importing necessary modules from mongoose
-const { Schema, Types, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const reactionSchema = require('./Reaction.js');
 const moment = require("moment"); 
 
