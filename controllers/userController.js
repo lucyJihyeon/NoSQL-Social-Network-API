@@ -5,8 +5,7 @@ module.exports = {
   //Get all the users
   async getUsers(req, res) {
     try {
-      const users = await User.find()
-      .select("-__v");
+      const users = await User.find().select("-__v");
       res.json(users);
     } catch (error) {
       console.error(error);
@@ -54,6 +53,7 @@ module.exports = {
       res.status(500).json({ message: "Error deleting a user" });
     }
   },
+  
   // Update a user and associated thoughts
   async updateUser(req, res) {
     try {
@@ -73,7 +73,13 @@ module.exports = {
         await Thought.updateMany(
           { username: ogUser.username },
           { $set: { username: req.body.username } },
-          //return the updated data and run validator 
+          //return the updated data and run validator
+          { runValidators: true, new: true }
+        );
+        // Update username in reactions within thoughts where the reaction's username matches the old username
+        await Thought.updateMany(
+          { "reactions.username": ogUser.username },
+          { $set: { "reactions.$.username": req.body.username } },
           { runValidators: true, new: true }
         );
       }
