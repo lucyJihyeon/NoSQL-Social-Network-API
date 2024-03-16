@@ -33,7 +33,7 @@ module.exports = {
       res.json(user);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Error creating a user" });
+      res.status(500).json({ error });
     }
   },
   // Delete a user and associated thoughts
