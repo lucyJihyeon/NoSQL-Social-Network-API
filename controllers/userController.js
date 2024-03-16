@@ -1,5 +1,4 @@
-const { ObjectId } = require("mongoose").Types;
-const { Thought, User, reactionSchema } = require("../models");
+const { Thought, User } = require("../models");
 
 module.exports = {
   //Get all the users
@@ -121,7 +120,7 @@ module.exports = {
       res.status(200).json(user);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Error adding a friend" });
+      res.status(500).json({ message: "Error deleting a friend" });
     }
   },
 };

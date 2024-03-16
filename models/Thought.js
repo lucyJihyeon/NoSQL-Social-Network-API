@@ -1,5 +1,5 @@
 //importing necessary modules from mongoose
-const { Schema, Types, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const reactionSchema = require('./Reaction.js');
 const moment = require("moment"); 
 
@@ -19,9 +19,8 @@ const thoughtSchema = new Schema(
       get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a") ,
     },
     username: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
-      ref: "user",
     },
     reactions: [reactionSchema],
   },
