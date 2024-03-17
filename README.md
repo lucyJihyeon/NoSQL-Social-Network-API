@@ -9,7 +9,6 @@
 - [Features](#features)
 - [Technologies-Used](#technologies-used)
 - [Contribution](#contribution)
-- [Preview](#preview)
 
 ## Installation 
 To install necessary dependencies, run following command:
@@ -91,17 +90,6 @@ node index.js
 3. Make your contributions/changes 
 4. push to the forked repo 
 5. create a new pull request
-
-
-## Preview 
-
-This is the preview of the application 
-
-* Thoughts API 
-<video src="img/social-network(thought%20api).mp4"></video>
-
-* Users API
-<video src="img/social-network(user%20api).mp4"></video>
 
 
 
